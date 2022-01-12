@@ -1,4 +1,156 @@
-<div class="container">
-  <h1>Страничка клиентов</h1>
-<h4>{{nameClient}}</h4>
+<script defer src="/js/clients.js"></script>
+
+<div class="container ">
+  <section class="clients">
+    <div class="clients__btnAdd">
+      <button class="btn">Новый клиент</button>
+    </div>
+
+    {{!-- <div class="clients__table"></div> --}}
+    <ul class="clients__table">
+
+      <li class="clients__table-item">
+        <a href="#" class="client__link">
+          <div class="clients__block profile">
+            <img src="/img/header/profile.png" alt="Prof">
+            <span>Стародубцев Николай Сергеевич</span>
+          </div>
+
+          <div class="clients__block city">
+            <span>г. Москва ул. Красная площадь д. 22 корп1</span>
+          </div>
+
+          <div class="clients__block comment">
+            <span>Комментарии ... </span>
+          </div>
+
+          <div class="clients__block meneger">
+            <span>Ричард</span>
+          </div>
+          
+
+        </a>
+      </li>
+
+
+      {{!-- del --}}
+      <li class="clients__table-item">
+        <a href="#" class="client__link">
+          <div class="clients__block profile">
+            <img src="/img/header/profile.png" alt="Prof">
+            <span>Стародубцев Николай Сергеевич</span>
+          </div>
+
+          <div class="clients__block city">
+            <span>г. Москва ул. Красная площадь д. 22 корп1</span>
+          </div>
+
+          <div class="clients__block comment">
+            <span>Комментарии ... </span>
+          </div>
+
+          <div class="clients__block meneger">
+            <span>Ричард</span>
+          </div>
+          
+
+        </a>
+      </li>
+
+            <li class="clients__table-item">
+        <a href="#" class="client__link">
+          <div class="clients__block profile">
+            <img src="/img/header/profile.png" alt="Prof">
+            <span>Стародубцев Николай Сергеевич</span>
+          </div>
+
+          <div class="clients__block city">
+            <span>г. Москва ул. Красная площадь д. 22 корп1</span>
+          </div>
+
+          <div class="clients__block comment">
+            <span>Комментарии ... </span>
+          </div>
+
+          <div class="clients__block meneger">
+            <span>Ричард</span>
+          </div>
+          
+
+        </a>
+      </li>
+
+            <li class="clients__table-item">
+        <a href="#" class="client__link">
+          <div class="clients__block profile">
+            <img src="/img/header/profile.png" alt="Prof">
+            <span>Стародубцев Николай Сергеевич</span>
+          </div>
+
+          <div class="clients__block city">
+            <span>г. Москва ул. Красная площадь д. 22 корп1</span>
+          </div>
+
+          <div class="clients__block comment">
+            <span>Комментарии ... </span>
+          </div>
+
+          <div class="clients__block meneger">
+            <span>Ричард</span>
+          </div>
+          
+
+        </a>
+      </li>
+
+                  <li class="clients__table-item">
+        <a href="#" class="client__link">
+          <div class="clients__block profile">
+            <img src="/img/header/profile.png" alt="Prof">
+            <span>Стародубцев Николай Сергеевич</span>
+          </div>
+
+          <div class="clients__block city">
+            <span>г. Москва ул. Красная площадь д. 22 корп1</span>
+          </div>
+
+          <div class="clients__block comment">
+            <span>Комментарии ... </span>
+          </div>
+
+          <div class="clients__block meneger">
+            <span>Ричард</span>
+          </div>
+          
+
+        </a>
+      </li>
+
+      {{!-- /del --}}
+
+
+    </ul>
+
+
+
+  
+
+
+  </section>
+</div>
+
+
+<div class="modal hide">
+  <div class="modal__content">
+    <h2>Новый клиент</h2>
+    <form action="#" class="modal__form">
+      <input type="text" class="modal__form-input" name="firstName" placeholder="Имя...">
+      <input type="text" class="modal__form-input" name="lastName" placeholder="Фамилия...">
+      <input type="text" class="modal__form-input" name="secondName" placeholder="Отчество...">
+      <input type="text" class="modal__form-input" name="location" placeholder="Адрес проживания...">
+      <textarea name="comment" class="modal__form-input" id="" cols="30" rows="10" placeholder="Комментарии..."></textarea>
+
+      <button type="submit" class="btn btn-green">Сохранить</button>
+    </form>
+  </div>
 </div>

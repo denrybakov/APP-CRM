@@ -1,0 +1,59 @@
+<script defer src="/js/client.js"></script>
+
+<div class="container">
+  <section class="client">
+    <h2>Страница клиента {{client.firstName}} </h2>
+
+    <div class="client__btnAdd">
+      <button class="btn btnOrder">Добавить заказ</button>
+    </div>
+    
+    <ul class="client-list">
+        <li class="client__item">Имя: {{client.firstName}}</li>
+        <li class="client__item">Фамилия: {{client.lastName}}</li>
+        <li class="client__item">Отчество: {{client.secondName}}</li>
+        <li class="client__item">Адрес: {{client.location}}</li>
+        <li class="client__item">Комментарии: {{client.comment}}</li>
+    </ul>
+
+  </section>
+</div>
+
+
+<div class="modalOrder hide">
+  <div class="modalOrder__content">
+    <form action="" class="modalOrder__form">
+
+    <input type="text" name="zakaz" placeholder="Номер заказа">
+    <input type="number" name="price" placeholder="Стоимость">
+
+    <input type="date" name="dateBuild" placeholder="Дата сборки">
+
+    <select name="brigadeDelivery" id="brS" placeholder=" Бригада сборки">
+      <option value="0">Бригада сборки 1</option>
+      <option value="1">Бригада сборки 2</option>
+    </select>
+    <input type="date" name="dateDelivery" placeholder="Дата доставки">
+
+    <select name="brigadeDelivery" id="brD" placeholder=" Бригада доставки">
+      <option value="0">Бригада доставки 1</option>
+      <option value="1">Бригада доставки 2</option>
+    </select>
+
+    <textarea name="comment" id="" cols="30" rows="10" placeholder="Комментарии" cols="5"></textarea>
+    <input type="date" name="status" placeholder="Статус заказа">
+    <select name="status" id="brD" placeholder="Статус заказа">
+      <option value="0">ожидание поставки</option>
+      <option value="1">в работе</option>
+      <option value="2">доставлен</option>
+      <option value="3">собран</option>
+      <option value="4">рекламация</option>
+    </select>
+
+
+    <button class="btn" type="submit">Подтвердить</button>
+    
+  </form>
+
+  </div>
+</div>

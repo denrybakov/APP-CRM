@@ -1,130 +1,49 @@
+
 <script defer src="/js/clients.js"></script>
 
 <div class="container ">
   <section class="clients">
     <div class="clients__btnAdd">
-      <button class="btn">Новый клиент</button>
+      <h1 class="">Клиенты</h1>
+        <button class="btn">Новый клиент</button>
     </div>
 
     {{!-- <div class="clients__table"></div> --}}
     <ul class="clients__table">
 
-      <li class="clients__table-item">
-        <a href="#" class="client__link">
+      {{#each clients}}
+      <li class="clients__table-item" data-id="{{this.id}}" data-id="{{this.id}}">
+        <a href="/clients/show/{{this.id}}" class="client__link">
           <div class="clients__block profile">
             <img src="/img/header/profile.png" alt="Prof">
-            <span>Стародубцев Николай Сергеевич</span>
+            <span>{{this.firstName}} {{this.lastName}} {{secondName}}</span>
           </div>
 
           <div class="clients__block city">
-            <span>г. Москва ул. Красная площадь д. 22 корп1</span>
+            <span>{{this.location}}</span>
           </div>
 
           <div class="clients__block comment">
-            <span>Комментарии ... </span>
+            <span>{{this.comment}}</span>
           </div>
 
           <div class="clients__block meneger">
-            <span>Ричард</span>
+            <span>{{userName}}</span>
           </div>
+
+          
           
 
         </a>
+        <div class="clients__block delete">
+            <span>удалить</span>
+          </div>
       </li>
+      {{/each}}
 
 
       {{!-- del --}}
-      <li class="clients__table-item">
-        <a href="#" class="client__link">
-          <div class="clients__block profile">
-            <img src="/img/header/profile.png" alt="Prof">
-            <span>Стародубцев Николай Сергеевич</span>
-          </div>
-
-          <div class="clients__block city">
-            <span>г. Москва ул. Красная площадь д. 22 корп1</span>
-          </div>
-
-          <div class="clients__block comment">
-            <span>Комментарии ... </span>
-          </div>
-
-          <div class="clients__block meneger">
-            <span>Ричард</span>
-          </div>
-          
-
-        </a>
-      </li>
-
-            <li class="clients__table-item">
-        <a href="#" class="client__link">
-          <div class="clients__block profile">
-            <img src="/img/header/profile.png" alt="Prof">
-            <span>Стародубцев Николай Сергеевич</span>
-          </div>
-
-          <div class="clients__block city">
-            <span>г. Москва ул. Красная площадь д. 22 корп1</span>
-          </div>
-
-          <div class="clients__block comment">
-            <span>Комментарии ... </span>
-          </div>
-
-          <div class="clients__block meneger">
-            <span>Ричард</span>
-          </div>
-          
-
-        </a>
-      </li>
-
-            <li class="clients__table-item">
-        <a href="#" class="client__link">
-          <div class="clients__block profile">
-            <img src="/img/header/profile.png" alt="Prof">
-            <span>Стародубцев Николай Сергеевич</span>
-          </div>
-
-          <div class="clients__block city">
-            <span>г. Москва ул. Красная площадь д. 22 корп1</span>
-          </div>
-
-          <div class="clients__block comment">
-            <span>Комментарии ... </span>
-          </div>
-
-          <div class="clients__block meneger">
-            <span>Ричард</span>
-          </div>
-          
-
-        </a>
-      </li>
-
-                  <li class="clients__table-item">
-        <a href="#" class="client__link">
-          <div class="clients__block profile">
-            <img src="/img/header/profile.png" alt="Prof">
-            <span>Стародубцев Николай Сергеевич</span>
-          </div>
-
-          <div class="clients__block city">
-            <span>г. Москва ул. Красная площадь д. 22 корп1</span>
-          </div>
-
-          <div class="clients__block comment">
-            <span>Комментарии ... </span>
-          </div>
-
-          <div class="clients__block meneger">
-            <span>Ричард</span>
-          </div>
-          
-
-        </a>
-      </li>
+      
 
       {{!-- /del --}}
 
@@ -143,7 +62,7 @@
 <div class="modal hide">
   <div class="modal__content">
     <h2>Новый клиент</h2>
-    <form action="#" class="modal__form">
+    <form action="/clients/{{userId}}/new" class="modal__form" method="POST">
       <input type="text" class="modal__form-input" name="firstName" placeholder="Имя...">
       <input type="text" class="modal__form-input" name="lastName" placeholder="Фамилия...">
       <input type="text" class="modal__form-input" name="secondName" placeholder="Отчество...">

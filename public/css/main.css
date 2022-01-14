@@ -34,6 +34,20 @@ h3 {
 	color: var(--color-black);
 }
 
+input,
+select {
+	border: none;
+	border-bottom: 2px solid rgba(0, 0, 0, .1);
+	padding: 10px 20px;
+}
+
+textarea {
+	border: none;
+	padding: 10px 20px;
+	resize: none;
+	height: 100px;
+}
+
 .btn {
 	border: 2px solid var(--color-blue);
 	border-radius: 5px;
@@ -238,7 +252,8 @@ Page clients
 
 .clients__btnAdd {
 	display: flex;
-	justify-content: flex-end;
+	justify-content: space-between;
+	align-items: center;
 	margin-bottom: 80px;
 }
 
@@ -267,6 +282,9 @@ Page clients
 	-moz-transition: transform 0.4s ease;
 	-ms-transition: transform 0.4s ease;
 	-o-transition: transform 0.4s ease;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 }
 
 .clients__table-item:hover {
@@ -275,6 +293,15 @@ Page clients
 	-moz-transform: translate(-15px, 0);
 	-ms-transform: translate(-15px, 0);
 	-o-transform: translate(-15px, 0);
+}
+
+.clients__table-item:hover * {
+	transition: color 0.3s ease;
+	-webkit-transition: color 0.3s ease;
+	-moz-transition: color 0.3s ease;
+	-ms-transition: color 0.3s ease;
+	-o-transition: color 0.3s ease;
+	color: var(--color-blue);
 }
 
 .clients__table-item a {
@@ -295,13 +322,18 @@ Page clients
 	min-width: 200px;
 	width: 100%;
 	display: flex;
-	justify-content: space-between;
+	/* justify-content: space-between; */
 }
 
 .clients__block.city {
 	max-width: 300px;
 	min-width: 200px;
 	width: 100%;
+}
+
+.clients__block.city span,
+.clients__block.comment span {
+	color: var(--color-gray);
 }
 
 .clients__block.comment {
@@ -318,7 +350,30 @@ Page clients
 	width: 100%;
 }
 
-.modal {
+.clients__block.delete {
+	display: inline-block;
+	border: 1px solid tomato;
+	color: tomato;
+	cursor: pointer;
+	padding: 5px;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-ms-border-radius: 3px;
+	-o-border-radius: 3px;
+}
+
+.clients__block.delete:hover {
+	background-color: tomato !important;
+	color: #fff !important;
+}
+
+.clients__block.meneger span {
+	color: var(--color-green);
+}
+
+.modal,
+.modalOrder {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -330,7 +385,8 @@ Page clients
 	justify-content: center;
 }
 
-.modal__content {
+.modal__content,
+.modalOrder__content {
 	max-width: 700px;
 	min-width: 500px;
 	width: 100%;
@@ -343,18 +399,76 @@ Page clients
 	-o-border-radius: 10px;
 }
 
-.modal__form {
+.modal__form,
+.modalOrder__form {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 }
 
-.modal__form-input {
+.modal__form-input,
+.modalOrder__form input {
 	width: 100%;
 	margin-bottom: 15px;
 }
 
-.modal.hide {
+.modalOrder__form textarea,
+.modalOrder__form select {
+	width: 100%;
+	margin-bottom: 15px;
+}
+
+.modal.hide,
+.modalOrder.hide {
 	display: none;
+}
+
+/* 
+===========================================================
+===========================================================
+===========================================================
+orders
+*/
+
+.order__form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	max-width: 600px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.order__form input,
+.order__form textarea,
+.order__form select {
+	width: 100%;
+	margin-bottom: 15px;
+}
+
+/* 
+===========================================================
+===========================================================
+===========================================================
+admin
+*/
+
+.admin__block .box {
+	background-color: var(--color-yellow);
+	color: var(--color-black);
+}
+
+.client__btnAdd {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.client {
+	padding-top: 50px;
+}
+
+.client h2 {
+	margin-top: 0;
 }

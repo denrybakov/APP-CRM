@@ -2,32 +2,37 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  {{!-- <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> --}}
+  {{!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> --}}
+  {{!-- <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"> --}}
   <link rel="stylesheet" href="/css/normalize.css">
   <link rel="stylesheet" href="/css/main.css">
   <title>CRM app</title>
 </head>
 <body>
+  {{#if userName}}
+  
   <header class="header">
     <div class="header__logo">StanislavCRM</div>
     <div class="header__hero">
       <img src="/img/header/profile.png" alt="Profile icon">
       <div class="header__hero-block">
-        <strong class="header__hero-img">Станислав</strong>
-        <p class="header__hero-description">stanislav@gmail.com</p>
+        <strong class="header__hero-img">{{userName}}</strong>
+        <p class="header__hero-description">{{userEmail}}</p>
       </div>
     </div>
     <ul class="header__list">
-      <li class="header__list-item"><a href="/">Главная</a></li>
-      <li class="header__list-item"><a href="/clients">Клиенты</a></li>
-      <li class="header__list-item"><a href="#">Заказы</a></li>
-      <li class="header__list-item"><a href="#">Админ-панель</a></li>
+      <li class="header__list-item"><a href="/main/{{userId}}">Главная</a></li>
+      <li class="header__list-item"><a href="/clients/{{userId}}">Клиенты</a></li>
+      <li class="header__list-item"><a href="/order/{{userId}}">Заказы</a></li>
+      <li class="header__list-item"><a href="/admin/{{userId}}">Админ-панель</a></li>
+      <li class="header__list-item"><a href="/logout">Выйти</a></li>
     </ul>
   </header>
+  {{/if}}
+
   {{{body}}}
 </body>
 </html>

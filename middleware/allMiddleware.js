@@ -6,15 +6,11 @@ const checkUser = (req, res, next) => {
   }
 }
 
-
 const deepCheckUser = (req, res, next) => {
-  // next() 
-  console.log('==========================-->>', req.session.userId)
-  if (Number(req.session.userId) === Number(req.params.id)) {
+  if (+req.session.userId === +req.params.id) {
     next()
   } else {
-
-    res.redirect(`/${req.session.userId}/iamsoryymama`);
+    res.redirect(`/error`);
   }
 }
 
@@ -22,6 +18,7 @@ const welcomeUser = (req, res, next) => {
   res.locals.userId = req.session?.userId
   if (req.session) {
     res.locals.userName = req.session.userName
+    res.locals.userEmail = req.session.userEmail
   }
   next()
 }

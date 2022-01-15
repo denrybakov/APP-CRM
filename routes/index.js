@@ -1,8 +1,8 @@
 const router = require('express').Router()
-const { User, Client } = require('../db/models')
-const sha256 = require('sha256')
 
+const { User, Client } = require('../db/models')
 const { checkUser, deepCheckUser } = require('../middleware/allMiddleware')
+const sha256 = require('sha256')
 
 router.get('/', (req, res) => {
   if (req.session.userName) {
@@ -10,7 +10,6 @@ router.get('/', (req, res) => {
   } else {
     res.redirect('/signin')
   }
-
 })
 
 router.get('/signin', (req, res) => {
@@ -18,26 +17,18 @@ router.get('/signin', (req, res) => {
 })
 
 router.post('/signin', async (req, res) => {
-  const { nameU, email, password } = req.body
+  const { email, password } = req.body
   const user = await User.findOne({ where: { email } })
-  console.log(user);
-  if (user) {
-    if (user.password === sha256(password)) {
+  try {
+    if (user.email === email && user.password === sha256(password)) {
       req.session.userName = user.nameU
       req.session.userEmail = user.email
       req.session.userId = user.id
-
-      console.log('++=====++======++=====++', user);
-
       res.json({ IdUser: user.id })
-      // res.redirect(`/main/${user.id}`)
-    } else {
-      res.redirect('/signin')
     }
-  } else {
+  } catch (err) {
     res.sendStatus(401)
   }
-
 })
 
 router.post('/signup', async (req, res) => {
@@ -55,28 +46,24 @@ router.post('/signup', async (req, res) => {
   } catch (e) {
     res.sendStatus(401)
   }
-
-
 })
 
-
+router.get('/error', (req, res) => {
+  res.render('error')
+})
 
 router.get('/logout', (req, res) => {
   req.session.destroy()
   res.redirect('/signin')
 })
 
-
 router.get('/main/:id', checkUser, deepCheckUser, async (req, res) => {
   const user = await User.findByPk(req.session.userId)
   const clientsAll = await Client.findAll({ where: { user_id: user.id } });
-  res.render('pages/index', { totalClients: clientsAll.length })
-
+  res.render('pages/index', {
+    user,
+    totalClients: clientsAll.length,
+  })
 })
 
-
-
-
 module.exports = router
-
-

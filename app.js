@@ -7,22 +7,16 @@ const cookieParser = require('cookie-parser')
 const session = require('express-session')
 const FileStore = require('session-file-store')(session)
 
-
-
 const { welcomeUser } = require('./middleware/allMiddleware')
 
-
-
-
 const PORT = 3030
-const app = express()
-
 const indexRouter = require('./routes/index')
 const clientsRouter = require('./routes/clientsRouter')
 const orderRouter = require('./routes/orderRouter')
 const adminRouter = require('./routes/adminRouter')
 const loginRouter = require('./routes/loginRouter')
 
+const app = express()
 app.set('view engine', 'hbs')
 app.set('views', path.join(process.env.PWD, 'views'))
 
@@ -42,9 +36,6 @@ app.use(session({
 }))
 
 app.use(welcomeUser)
-
-
-
 app.use('/', indexRouter)
 app.use('/clients', clientsRouter)
 app.use('/order', orderRouter)
